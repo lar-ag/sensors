@@ -1,0 +1,23 @@
+[package]
+name = "ndir"
+version = "0.0.1"
+authors = [""]
+edition = "2018"
+description = "NDir sensor protocol implementation"
+keywords = ["ndir"]
+categories = ["sensors"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/lnicola/co2mon"
+
+[features]
+# The std feature enables std support. Currently it's used only to
+# implement std::error::Error on zg_co2::Error.
+std = []
+default = ["std"]
+
+[dev-dependencies]
+assert_float_eq = { version = "1.1", default-features = false }
+
+[dependencies]
+paw = "1.0.0"
+runtime = "0.3.0-alpha.6"
