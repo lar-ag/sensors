@@ -21,3 +21,21 @@ assert_float_eq = { version = "1.1", default-features = false }
 [dependencies]
 paw = "1.0.0"
 runtime = "0.3.0-alpha.6"
+
+
+
+[package.metadata.deb]
+maintainer = "Smolkov <asmolkov@lar.com>"
+copyright = "2019, LAR"
+depends = "$auto, systemd"
+conf-files = ["/usr/local/etc/edinburgh.toml", "/etc/systemd/system/edinburgh-server.service"]
+extended-description = """\
+Edinburg on rs232 .\
+"""
+section = "admin"
+priority = "optional"
+assets = [
+    ["target/release/edinburg", "/usr/local/bin/", "755"],
+    ["assets/edinburgh.toml", "/usr/local/etc/", "644"],
+    ["assets/edinburgh-server.service", "/etc/systemd/system/", "644"],
+]
